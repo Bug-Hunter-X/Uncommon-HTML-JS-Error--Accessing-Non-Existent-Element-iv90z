@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text should be visible.
+  </div>
+  <div class="myClass">
+    This text should be hidden.
+  </div>
+
+  <script>
+    // Correct use of querySelectorAll with null check
+    let elements = document.querySelectorAll(".myClass");
+
+    if (elements && elements.length > 0) {
+      elements[0].style.display = "none";
+    } else {
+      console.log("Element with class '.myClass' not found!");
+    }
+
+    // Check if the element exists before accessing its properties
+    const nonExistentElement = document.querySelector("#nonExistentElement");
+    if (nonExistentElement) {
+      nonExistentElement.style.color = "red";
+    } else {
+      console.log("Element with id '#nonExistentElement' not found!");
+    }
+  </script>
+</body>
+</html>
