@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text should be visible.
+  </div>
+
+  <script>
+    // Incorrect use of querySelectorAll with a non-existent element
+    let elements = document.querySelectorAll(".myClass");
+    
+    if (elements.length > 0) {
+      elements[0].style.display = "none";
+    } else {
+      console.error("Element with class '.myClass' not found!");
+    }
+
+    // This will throw an error if the element is not found
+    document.querySelector("#nonExistentElement").style.color = "red"; 
+  </script>
+</body>
+</html>
